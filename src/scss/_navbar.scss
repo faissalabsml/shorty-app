@@ -1,0 +1,158 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.navbar.desktop {
+  display: none;
+
+  .navbar {
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: $grayish-violet;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    &__logo {
+      img {
+        max-width: 10rem;
+      }
+    }
+
+    &__links {
+      display: flex;
+      gap: 1.5rem;
+      cursor: default;
+
+      li:hover {
+        color: $dark-violet;
+      }
+    }
+
+    &__right {
+      font-size: 1.3rem;
+
+      a {
+        display: inline-block;
+      }
+      a:first-child {
+        color: $grayish-violet;
+        margin-right: 1rem;
+
+        &:hover {
+          color: $dark-violet;
+        }
+      }
+
+      a:last-child {
+        background-color: $cyan;
+        color: $white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 10rem;
+        font-weight: 700;
+
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    display: flex;
+  }
+}
+
+.navbar.mobile {
+  --gap: 2.7rem;
+
+  .navbar {
+    &__menu-btn {
+      margin-bottom: 0.8rem;
+
+      span {
+        display: block;
+        width: 2.6rem;
+        height: 0.3rem;
+        background-color: $grayish-violet;
+        border-radius: 10px;
+        transform-origin: right;
+        transition: all 0.2s ease-in;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &.active {
+        span:first-child {
+          transform: rotate(-45deg);
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+        }
+
+        span:last-child {
+          transform: rotate(45deg) translate(10%, 40%);
+        }
+      }
+    }
+
+    &__menu {
+      background-color: $dark-violet;
+      position: absolute;
+      top: 5rem;
+      right: 0;
+      width: 100%;
+      max-width: 40rem;
+      border-radius: 10px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      color: $white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: top right;
+      transition: all 0.2s ease-in;
+
+      &__links {
+        border-bottom: 1px solid $grayish-violet-transparent;
+      }
+
+      &__buttons {
+        margin-top: var(--gap);
+      }
+
+      li,
+      a:not(:last-child) {
+        margin-bottom: var(--gap);
+      }
+
+      a:last-child {
+        background-color: $cyan;
+        border-radius: 50rem;
+        padding: 1rem 0;
+      }
+    }
+
+    &__menu.active {
+      visibility: visible;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+}

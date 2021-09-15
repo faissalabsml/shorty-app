@@ -1,0 +1,75 @@
+body {
+  font-family: $font;
+}
+
+.heading-1 {
+  color: $very-dark-violet;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  max-width: 12ch;
+
+  @include breakpoint(large) {
+    font-size: 5rem;
+  }
+}
+
+.heading-2 {
+  color: $very-dark-violet;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.heading-3 {
+  color: $very-dark-violet;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.heading-4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.body {
+  font-size: 1.5rem;
+  color: $grayish-violet;
+  margin-bottom: 2rem;
+  max-width: 40ch;
+}
+
+.body-2 {
+  font-size: 1.2rem;
+  color: $very-dark-blue;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: $cyan;
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  border-radius: 10rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $white;
+}
+
+.btn {
+  background-color: $cyan;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: $white;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-btn,
+.btn {
+  &:hover {
+    filter: brightness(110%);
+  }
+}
